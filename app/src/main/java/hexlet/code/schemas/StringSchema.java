@@ -5,19 +5,16 @@ public class StringSchema {
     private int minLength = 0;
     private String substring = "";
 
-    public StringSchema required() {
+    public void required() {
         required = true;
-        return this;
     }
 
-    public StringSchema minLength(int length) {
+    public void minLength(int length) {
         minLength = length;
-        return this;
     }
 
-    public StringSchema contains(String string) {
+    public void contains(String string) {
         substring = string;
-        return this;
     }
 
     public boolean isValid(String string) {
