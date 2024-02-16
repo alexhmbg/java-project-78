@@ -1,13 +1,8 @@
 package hexlet.code.schemas;
 
-public class StringSchema {
-    private boolean required = false;
-    private int minLength = 0;
-    private String substring = "";
-
-    public void required() {
-        required = true;
-    }
+public class StringSchema<T> extends BaseSchema<T> {
+    private int minLength;
+    private String substring;
 
     public void minLength(int length) {
         minLength = length;
@@ -17,12 +12,11 @@ public class StringSchema {
         substring = string;
     }
 
-    public boolean isValid(String string) {
-        if (string == null || string.isEmpty()) {
-            return !required;
-        }
+    @Override
+    public boolean isValid(T t) {
+        super.isValid(t);
 
-        boolean isMinLengthAndContains = string.contains(substring) && string.length() >= minLength;
+        boolean isMinLengthAndContains = t.toString().contains(substring) && t.toString().length() >= minLength;
 
         return isMinLengthAndContains;
     }
