@@ -1,33 +1,16 @@
 package hexlet.code.schemas;
 
-public class NumberSchema<T> extends BaseSchema<T> {
-    private boolean needToBePositive = false;
-    private boolean isRangeRequired = false;
-    private int minRange;
-    private int maxRange;
+import hexlet.code.Check;
 
+public class NumberSchema extends BaseSchema<Integer> {
     public void positive() {
-        needToBePositive = true;
+        Check<Integer> isPositive = i -> i >= 0;
+        addCheck(isPositive);
     }
 
     public void range(int minRange, int maxRange) {
-        isRangeRequired = true;
-        this.minRange = minRange;
-        this.maxRange = maxRange;
+        Check<Integer> isInRange = i -> i >= minRange && i <= maxRange;
+        addCheck(isInRange);
     }
 
-    @Override
-    public boolean isValid(T t)  {
-        super.isValid(t);
-
-        if (needToBePositive && (Integer) t < 0) {
-            return false;
-        }
-
-        if (isRangeRequired) {
-            return (Integer) t >= minRange && (Integer) t <= maxRange;
-        }
-
-        return true;
-    }
 }

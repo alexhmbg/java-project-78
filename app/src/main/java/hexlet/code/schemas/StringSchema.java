@@ -1,23 +1,15 @@
 package hexlet.code.schemas;
 
-public class StringSchema<T> extends BaseSchema<T> {
-    private int minLength;
-    private String substring;
+import hexlet.code.Check;
 
+public class StringSchema extends BaseSchema<String> {
     public void minLength(int length) {
-        minLength = length;
+        Check<String> isPositive = i -> i.length() >= length;
+        addCheck(isPositive);
     }
 
     public void contains(String string) {
-        substring = string;
-    }
-
-    @Override
-    public boolean isValid(T t) {
-        super.isValid(t);
-
-        boolean isMinLengthAndContains = t.toString().contains(substring) && t.toString().length() >= minLength;
-
-        return isMinLengthAndContains;
+        Check<String> isPositive = i -> i.contains(string);
+        addCheck(isPositive);
     }
 }
