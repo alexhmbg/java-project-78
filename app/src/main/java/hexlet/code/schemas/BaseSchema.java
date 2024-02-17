@@ -5,7 +5,7 @@ import hexlet.code.Check;
 import java.util.List;
 import java.util.ArrayList;
 
-class BaseSchema<T> {
+public class BaseSchema<T> {
     private final List<Check<T>> checks = new ArrayList<>();
     public boolean required;
 
@@ -13,8 +13,9 @@ class BaseSchema<T> {
         checks.add(check);
     }
 
-    public void required() {
+    public BaseSchema<T> required() {
         required = true;
+        return this;
     }
 
     public boolean isValid(T t) {

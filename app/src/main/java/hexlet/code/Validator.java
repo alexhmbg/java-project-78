@@ -8,7 +8,6 @@ public class Validator {
     public static void main(String[] args) {
 
     }
-
     public StringSchema string() {
         return new StringSchema();
     }
@@ -20,6 +19,4 @@ public class Validator {
     public MapSchema map() {
         return new MapSchema();
     }
-
-    // through BaseSchema call ^^
 }

@@ -3,14 +3,16 @@ package hexlet.code.schemas;
 import hexlet.code.Check;
 
 public class NumberSchema extends BaseSchema<Integer> {
-    public void positive() {
+    public NumberSchema positive() {
         Check<Integer> isPositive = i -> i >= 0;
         addCheck(isPositive);
+        return this;
     }
 
-    public void range(int minRange, int maxRange) {
+    public NumberSchema range(int minRange, int maxRange) {
         Check<Integer> isInRange = i -> i >= minRange && i <= maxRange;
         addCheck(isInRange);
+        return this;
     }
 
 }
