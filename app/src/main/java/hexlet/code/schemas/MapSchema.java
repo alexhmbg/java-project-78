@@ -13,16 +13,16 @@ public class MapSchema extends BaseSchema<Map<String, String>> {
     }
 
     public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
-       Check<Map<String, String>> isValidValues = map -> {
-           for (var mapKey : map.keySet()) {
-                   if (!schemas.get(mapKey).isValid(map.get(mapKey))) {
-                       return false;
-               }
-           }
-           return true;
-       };
+        Check<Map<String, String>> isValidValues = map -> {
+            for (var mapKey : map.keySet()) {
+                if (!schemas.get(mapKey).isValid(map.get(mapKey))) {
+                    return false;
+                }
+            }
+            return true;
+        };
 
-       addCheck(isValidValues);
-       return this;
+        addCheck(isValidValues);
+        return this;
     }
 }

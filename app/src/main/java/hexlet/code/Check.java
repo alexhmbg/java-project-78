@@ -1,5 +1,5 @@
 package hexlet.code;
 
 public interface Check<T> {
-        boolean run(T t);
+    boolean run(T t);
 }

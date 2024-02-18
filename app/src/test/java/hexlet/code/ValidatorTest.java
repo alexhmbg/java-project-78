@@ -123,33 +123,37 @@ class ValidatorTest {
         var expected6 = true;
         var actual6 = schema.isValid(map2);
         assertEquals(expected6, actual6);
+    }
 
-
-        var v = new Validator();
-        var schema3 = v.map();
+    @Test
+    public void validatorTestMapSchema() {
+        var validator = new Validator();
+        var schema = validator.map();
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
-        schemas.put("firstName", v.string().minLength(2).required());
-        schemas.put("lastName", v.string().minLength(4).required());
-        schema3.shape(schemas);
-
+        schemas.put("firstName", validator.string().required());
+        schemas.put("lastName", validator.string().minLength(2).required());
+        schema.shape(schemas);
 
         Map<String, String> human1 = new HashMap<>();
-        human1.put("firstName", "u");
+        human1.put("firstName", null);
         human1.put("lastName", "Smith");
-        System.out.println(schema3.isValid(human1));
-        schema3.isValid(human1); // true
+        var expected = false;
+        var actual = schema.isValid(human1);
+        assertEquals(expected, actual);
 
         Map<String, String> human2 = new HashMap<>();
-        human2.put("firstName", "Jdgg");
-        human2.put("lastName", "ajjg");
-        System.out.println(schema3.isValid(human2));
-        schema3.isValid(human2); // false
+        human2.put("firstName", "John");
+        human2.put("lastName", "S");
+        var expected2 = false;
+        var actual2 = schema.isValid(human2);
+        assertEquals(expected2, actual2);
 
         Map<String, String> human3 = new HashMap<>();
-        human3.put("firstName", "Anna");
-        human3.put("lastName", "ggg");
-        System.out.println(schema3.isValid(human3));
-        schema3.isValid(human3); // false
+        human3.put("firstName", "Brad");
+        human3.put("lastName", "Pitt");
+        var expected3 = true;
+        var actual3 = schema.isValid(human3);
+        assertEquals(expected3, actual3);
     }
 }
 
