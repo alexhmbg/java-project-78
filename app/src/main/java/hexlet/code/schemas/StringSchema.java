@@ -4,6 +4,11 @@ import hexlet.code.Check;
 
 public class StringSchema extends BaseSchema<String> {
 
+    public StringSchema required() {
+        required = true;
+        return this;
+    }
+
     public StringSchema minLength(int length) {
         Check<String> isPositive = i -> i.length() >= length;
         addCheck(isPositive);

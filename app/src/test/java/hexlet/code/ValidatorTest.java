@@ -131,7 +131,7 @@ class ValidatorTest {
         var schema = validator.map();
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
         schemas.put("firstName", validator.string().required());
-        schemas.put("lastName", validator.string().minLength(2).required());
+        schemas.put("lastName", validator.string().required().minLength(2));
         schema.shape(schemas);
 
         Map<String, String> human1 = new HashMap<>();

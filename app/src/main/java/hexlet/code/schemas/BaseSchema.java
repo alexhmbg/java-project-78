@@ -13,11 +13,6 @@ public class BaseSchema<T> {
         checks.add(check);
     }
 
-    public BaseSchema<T> required() {
-        required = true;
-        return this;
-    }
-
     public boolean isValid(T t) {
         if (t == null || t.equals("")) {
             return !required;

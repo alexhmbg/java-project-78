@@ -6,6 +6,10 @@ import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map<String, String>> {
 
+    public MapSchema required() {
+        required = true;
+        return this;
+    }
     public MapSchema sizeof(int size) {
         Check<Map<String, String>> isSameSize = i -> i.size() == size;
         addCheck(isSameSize);
