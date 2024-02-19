@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import hexlet.code.schemas.BaseSchema;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ValidatorTest {
     @Test
