@@ -7,12 +7,7 @@ import java.util.ArrayList;
 
 public class BaseSchema<T> {
     private final List<Check<T>> checks = new ArrayList<>();
-    private boolean required = false;
-
-    public BaseSchema<T> required() {
-        required = true;
-        return this;
-    }
+    protected boolean required = false;
 
     public final void addCheck(Check<T> check) {
         checks.add(check);

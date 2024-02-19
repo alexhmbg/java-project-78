@@ -4,9 +4,8 @@ import hexlet.code.Check;
 
 public final class StringSchema extends BaseSchema<String> {
 
-    @Override
     public StringSchema required() {
-        super.required();
+        super.required = true;
         return this;
     }
 

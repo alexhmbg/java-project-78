@@ -4,9 +4,8 @@ import hexlet.code.Check;
 
 public final class NumberSchema extends BaseSchema<Integer> {
 
-    @Override
     public NumberSchema required() {
-        super.required();
+        super.required = true;
         return this;
     }
 

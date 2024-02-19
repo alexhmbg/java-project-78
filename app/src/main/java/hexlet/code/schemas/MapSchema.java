@@ -6,9 +6,8 @@ import java.util.Map;
 
 public final class MapSchema extends BaseSchema<Map<String, String>> {
 
-    @Override
     public MapSchema required() {
-        super.required();
+        super.required = true;
         return this;
     }
 
