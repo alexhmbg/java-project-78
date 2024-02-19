@@ -14,7 +14,7 @@ public class BaseSchema<T> {
     }
 
     public boolean isValid(T t) {
-        if (t == null || t.equals("")) {
+        if (t == null || t.equals("") || t.equals(0)) {
             return !required;
         }
 
