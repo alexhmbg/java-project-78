@@ -2,10 +2,11 @@ package hexlet.code.schemas;
 
 import hexlet.code.Check;
 
-public class StringSchema extends BaseSchema<String> {
+public final class StringSchema extends BaseSchema<String> {
 
+    @Override
     public StringSchema required() {
-        required = true;
+        super.required();
         return this;
     }
 

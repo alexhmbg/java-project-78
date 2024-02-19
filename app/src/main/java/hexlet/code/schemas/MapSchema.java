@@ -4,12 +4,14 @@ import hexlet.code.Check;
 
 import java.util.Map;
 
-public class MapSchema extends BaseSchema<Map<String, String>> {
+public final class MapSchema extends BaseSchema<Map<String, String>> {
 
+    @Override
     public MapSchema required() {
-        required = true;
+        super.required();
         return this;
     }
+
     public MapSchema sizeof(int size) {
         Check<Map<String, String>> isSameSize = i -> i.size() == size;
         addCheck(isSameSize);
