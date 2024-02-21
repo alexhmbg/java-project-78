@@ -4,9 +4,9 @@
 <a href="https://codeclimate.com/github/alexhmbg/java-project-78/maintainability"><img src="https://api.codeclimate.com/v1/badges/09f8b57f387208777d46/maintainability" /></a>
 <a href="https://codeclimate.com/github/alexhmbg/java-project-78/test_coverage"><img src="https://api.codeclimate.com/v1/badges/09f8b57f387208777d46/test_coverage" /></a>
 
-Data Validator is a library designed to verify the accuracy of various types of data.
-The validator operates as follows:
+Data Validator is a library designed to verify the accuracy of various types of data. 
 
+The validator operates as follows:
 First, a validator object is created.  
 Next, a data validation schema is created and configured.  
 After that, data validation is performed using the created schema.  
