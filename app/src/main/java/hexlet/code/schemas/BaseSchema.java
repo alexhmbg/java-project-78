@@ -1,15 +1,14 @@
 package hexlet.code.schemas;
 
-import hexlet.code.Check;
-
 import java.util.List;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class BaseSchema<T> {
-    private final List<Check<T>> checks = new ArrayList<>();
+    private final List<Predicate<T>> checks = new ArrayList<>();
     protected boolean required = false;
 
-    public final void addCheck(Check<T> check) {
+    public final void addCheck(Predicate<T> check) {
         checks.add(check);
     }
 
@@ -19,7 +18,7 @@ public class BaseSchema<T> {
         }
 
         for (var check : checks) {
-            if (!check.run(t)) {
+            if (!check.test(t)) {
                 return false;
             }
         }
